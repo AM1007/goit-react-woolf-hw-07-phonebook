@@ -1,0 +1,31 @@
+.container {
+  border: 1px solid black;
+  width: 516px;
+  margin: 0 auto;
+}
+
+.headline {
+  text-align: center;
+  font-size: x-large;
+}
+
+.ul {
+  padding: 16px;
+}
+
+.li {
+  padding: 8px;
+  margin-bottom: 16px;
+  list-style: none;
+  border-bottom: 1px solid grey;
+
+  &::last-child {
+    margin-bottom: 0;
+  }
+}
+
+.p {
+  text-align: center;
+  margin-top: 24px;
+  color: #b9b9b9;
+}

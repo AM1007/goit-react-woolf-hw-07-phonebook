@@ -1,0 +1,36 @@
+.container {
+  padding: 16px;
+  width: 485px;
+  border: 1px solid;
+  margin: 0 auto;
+}
+
+.headline {
+  text-align: center;
+  font-size: x-large;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  padding-left: 8px;
+  margin: 8px 0 16px;
+  height: 28px;
+  background-color: transparent;
+  border: 1px solid #777;
+  transition: background-color 250ms linear;
+
+  &::placeholder {
+    padding: 8px;
+    color: #b9b9b9;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: #fff;
+    border-radius: 4px;
+  }
+}

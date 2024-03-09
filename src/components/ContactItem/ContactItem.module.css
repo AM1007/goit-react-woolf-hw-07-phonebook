@@ -1,0 +1,39 @@
+.div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button {
+  padding: 8px;
+  width: 60px;
+  display: block;
+  border: 1px solid black;
+  background-color: #dedede;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 1s linear, transform 50s ease-in;
+
+  &:hover,
+  &:focus {
+    background-color: #777;
+    color: #f2f2f2;
+  }
+}
+
+.div:hover .contacts {
+  transform: scale(1.01);
+  transform-origin: left;
+}
+
+.div:hover .button,
+.div:focus .button {
+  opacity: 1;
+}
+
+.contacts {
+  display: flex;
+  flex-direction: row;
+  width: 280px;
+  justify-content: space-between;
+}
