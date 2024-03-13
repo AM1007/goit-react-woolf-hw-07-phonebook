@@ -1,31 +1,25 @@
-import { useSelector, useDispatch } from 'react-redux/es/exports';
-import { setFilter } from 'redux/contacts/slice';
-import { getFilter } from 'redux/contacts/selectors';
-import css from './Filter.module.css';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { FilterInput, FilterLabel } from './Filter.styled';
+import { hendleChangeContact } from 'redux/filterSlice';
+import { selectFilter } from 'redux/selectors';
 
-export default function Filter() {
+export const Filter = () => {
   const dispatch = useDispatch();
-  const filter = useSelector(getFilter);
-
+  const value = useSelector(selectFilter);
+  const hendelInput = event => {
+    dispatch(hendleChangeContact(event.target.value));
+  };
   return (
-    <>
-      <h2 className={css.headline}>Search</h2>
-      <div className={css.container}>
-        <label className={css.label}>
-          Search by name
-          <input
-            className={css.input}
-            type="text"
-            name="filter"
-            value={filter}
-            placeholder="Enter the Name"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            onChange={evt => dispatch(setFilter(evt.target.value))}
-            required
-          />
-        </label>
-      </div>
-    </>
+    <FilterLabel>
+      Search contacts by name
+      <FilterInput
+        value={value}
+        type="text"
+        name="filter"
+        placeholder="Enter the Name"
+        onChange={hendelInput}
+      />
+    </FilterLabel>
   );
-}
+};

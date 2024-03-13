@@ -1,4 +1,6 @@
 @import-normalize; /* bring in normalize.css styles */
+@import url('https://fonts.googleapis.com/css2?family=Slackside+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Slackside+One&display=swap');
 
 body {
   margin: 0;
@@ -7,8 +9,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100vh;
-  background: linear-gradient(to bottom, #fdfdfd 0%, #e0e0e0 100%);
+  background-image: url('./images/paper.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 code {

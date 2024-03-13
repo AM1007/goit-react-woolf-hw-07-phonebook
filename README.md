@@ -11,21 +11,49 @@
 
 ## Phonebook
 
-Refactor the code of the
-[previous task](https://github.com/AM1007/goit-react-woolf-hw-04-phonebook) to
-add state management using the [Redux Toolkit](https://react-redux.js.org/)
-library. Let the Redux state look like this.
+Refactor the
+[Phonebook code](https://github.com/AM1007/goit-react-woolf-hw-06-phonebook).
+Refactored the code responsible for storing and reading contacts from local
+storage, and integrated interaction with the backend for storing contacts.
 
-```
+#### Backend
+
+Set up your personal backend for development using the
+[mockapi.io](https://mockapi.io/) UI service. Sign up using your GitHub account.
+Establish a `contacts` resource to access the `/contacts` endpoint. Utilize the
+resource constructor and provide a description of the contact object, following
+the illustration.
+
+![Preview](./assets/api.png)
+
+#### State form
+
+Incorporate a loading indicator and error handling into the Redux state. To
+achieve this, modify the state structure.
+
+```js
 {
-  contacts: [],
+  contacts: {
+    items: [],
+    isLoading: false,
+    error: null
+  },
   filter: ""
 }
 ```
 
-- Create a store with `configureStore()`
-- Use the `createSlice()` function
-- Create actions to save and delete a contact, as well as update a filter
-- Connect React components with Redux logic using the
-  [react-redux](https://react-redux.js.org/) library hooks.
-- Use the Redux Persist library to store an array of contacts in local storage
+#### Operations
+
+Utilize the
+[createAsyncThunk](https://redux-toolkit.js.org/api/createAsyncThunk) function
+to define asynchronous action creators and handle HTTP requests. Employ
+`createSlice` to manage actions and update data within the Redux state.
+
+Announce the following transactions:
+
+- `fetchContacts`: Retrieving an array of contacts (using the GET method) upon
+  request. Basic action type is `"contacts/fetchAll"`.
+- `addContact`: Adding a contact (using the POST method). Basic action type is
+  `"contacts/addContact"`.
+- `deleteContact`: Deleting a contact (using the DELETE method). The basic
+  action type is `"contacts/deleteContact"`.
